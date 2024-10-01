@@ -22,8 +22,36 @@
            <a href="#aboutus">About us</a>
            <a href="#contact">Contato</a>
         </nav>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">
+                <i class="fa-solid fa-user"></i>
+            </button>
+            <div id="myDropdown" class="dropdown-content">
+                <div class="user-info">
+                    <img src="img/user-pic.jpg">
+                    <h1>Nome de Usuário</h1>  
+                </div>
+                <hr>
+                <a href=""><div class="edit-profile"><i class="fa-solid fa-user-gear"></i></div>
+                    <p>Edit Profile</p>
+                    <span></span>
+                </a>
+                <a href="#"> <div class="setting-profile"><i class="fa-solid fa-gear"></i></div>
+                    <p>Configurações</p>
+                    <span></span>
+                </a>
+                <a href="#"><div class="help-profile"><i class="fa-solid fa-circle-info"></i></div>
+                    <p>Ajuda</p>
+                    <span></span>
+                </a>
+                <a href="#"><div class="logout-profile"><i class="fa-solid fa-right-to-bracket"></i></div>
+                    <p>LogOut</p>
+                    <span></span>
+                </a>
+            </div>
+          </div>
         <div class="icons">
-            <div class="user-icon" onclick="togglemenu()"><i class="fa-solid fa-user"></i></div>
+            <!-- <div class="user-icon" onclick="togglemenu()"><i class="fa-solid fa-user"></i></div> -->
            <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
            <div class="menu-icon"><i class="fa-solid fa-bars"></i></div>
         </div>
@@ -31,7 +59,7 @@
             <input type="text" name="search" id="search-box" placeholder="search here..." />
             <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
         </div>
-        <div class="sub-menu-wrap" id="sub-menu-wrap">
+        <!-- <div class="sub-menu-wrap" id="sub-menu-wrap">
             <div class="sub-menu">
                 <div class="user-info">
                     <img src="img/user-pic.jpg">
@@ -60,14 +88,14 @@
                     <span></span>
                 </a>
             </div>
-        </div>
+        </div> -->
     </header>
     
     <section class="home" id="home">
         <div class="hero">
             <h3 class="texto1">Bem vindo(a)!</h3>
             <p class="texto">Explore the works of independent artists from around the world.</p>
-            <a class="btn" href="../cadastro/login.html">Cadastre-se para mais</a>
+            <a class="btn" href="../cadastro/primeiraVez.html">Cadastre-se para mais</a>
         </div>
     </section>
     <section>
