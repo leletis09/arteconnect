@@ -12,22 +12,23 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('../img/background-login.jpg');
+    background: url('../cadastro/background\ p.i\ luiza\ \(1\).png');
     background-size: cover;
     background-position: center;
 }
 
 .container{
-    width: 300px;
-    background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
+    width: 400px;
+    background-color: #64a4bd;
+    border: 2px solid rgba(0, 238, 255, 0.2);
     border-radius: 10px;
     color: white;
-    padding: 30px 4px;
+    padding: 40px 10px;
     box-shadow: 0 0 10px rba(255, 255, 255, .2);
-    backdrop-filter: blur(100px);
-    display: flex;
+    backdrop-filter: blur(50px);
 }
+
+hjmyuk78tuiiubniilwidhjwdoqdh3 mzowqo 8ey;l;lo-[]l~l~l~jnm,blguklhhsadfawdfwfaegmh,h, j,huliukj
 
 .container h1{
     font-size: 36px;
@@ -93,7 +94,7 @@ body{
 
 .login{
     width: 100%;
-    height: 70px;
+    height: 50px;
     background-color: #fff;
     border: none;
     border-radius: 40px;

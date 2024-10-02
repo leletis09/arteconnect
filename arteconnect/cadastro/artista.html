@@ -40,23 +40,36 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.all.min.js"></script>
     <script>
-        function LoginArt(event) {
-            event.preventDefault(); // Previne o envio do formulário
+      function LoginArt(event) {
+    event.preventDefault(); // Previne o envio do formulário
 
-            const usuario = document.getElementById('usuario').value;
-            const senha = document.getElementById('senha').value;
-            const area = document.getElementById('area').value;
-            const estilo = document.getElementById('estilo').value;
+    const usuario = document.getElementById('usuario').value;
+    const senha = document.getElementById('senha').value;
+    const area = document.getElementById('area').value;
+    const estilo = document.getElementById('estilo').value;
+    const tipo_usuario = 'artista'; // Tipo de usuário fixo para Artista
 
-            // Validação simples dos campos
-            if (usuario && senha && area && estilo) {
-        if (usuario === "a" && senha === "1" && area === "a" && estilo === "a") {
-            Swal.fire("Bom trabalho!", "Você está logado!", "success").then(() => {
-                window.location.href = "../home.html"; // Redireciona após clicar em OK
-            });
-        } else {
-            Swal.fire("Erro!", "Usuário ou senha inválidos.", "error");
-        }
+    if (usuario && senha && area && estilo) {
+        fetch('cadastro.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `usuario=${usuario}&senha=${senha}&area=${area}&estilo=${estilo}&tipo_usuario=${tipo_usuario}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                Swal.fire("Bom trabalho!", data.message, "success").then(() => {
+                    window.location.href = "../home.html"; // Redireciona após sucesso
+                });
+            } else {
+                Swal.fire("Erro!", data.message, "error");
+            }
+        })
+        .catch(error => {
+            Swal.fire("Erro!", "Ocorreu um erro ao cadastrar.", "error");
+        });
     } else {
         Swal.fire("Atenção!", "Por favor, preencha todos os campos corretamente.", "warning");
     }

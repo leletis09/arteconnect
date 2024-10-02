@@ -35,25 +35,40 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.all.min.js"></script>
     <script>
-        function PrimeiroLogin(event) {
-            event.preventDefault(); // Previne o envio do formulário
+       function PrimeiroLogin(event) {
+    event.preventDefault(); // Previne o envio do formulário
 
-            const usuario1 = document.getElementById('usuario1').value;
-            const senha1 = document.getElementById('senha1').value;
+    const usuario1 = document.getElementById('usuario1').value;
+    const senha1 = document.getElementById('senha1').value;
 
-            // Validação simples dos campos
-            if (usuario1 && senha1) {
-                if (usuario1 === "a" && senha1 === "1") {
-                    Swal.fire("Bom trabalho!", "Você está logado!", "success").then(() => {
-                        window.location.href = "../home.html"; // Redireciona após clicar em OK
-                    });
-                } else {
-                    Swal.fire("Erro!", "Usuário ou senha inválidos.", "error");
-                }
+    if (usuario1 && senha1) {
+        // Enviar os dados via POST para o login.php
+        fetch('login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `usuario=${usuario1}&senha=${senha1}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                Swal.fire("Bom trabalho!", data.message, "success").then(() => {
+                    window.location.href = "../home.html"; // Redireciona após sucesso
+                });
             } else {
-                Swal.fire("Atenção!", "Por favor, preencha todos os campos corretamente.", "warning");
+                Swal.fire("Erro!", data.message, "error");
             }
-        }
+        })
+        .catch(error => {
+            Swal.fire("Erro!", "Ocorreu um erro ao logar.", "error");
+        });
+    } else {
+        Swal.fire("Atenção!", "Por favor, preencha todos os campos corretamente.", "warning");
+    }
+}
+
+
     </script>
 </body>
 </html>

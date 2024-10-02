@@ -12,20 +12,20 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('../img/background-login.jpg');
+    background: url('../cadastro/background\ p.i\ luiza\ \(1\).png');
     background-size: cover;
     background-position: center;
 }
 
 .container{
     width: 400px;
-    background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
+    background-color: #64a4bd;
+    border: 2px solid rgba(0, 238, 255, 0.2);
     border-radius: 10px;
     color: white;
-    padding: 30px 4-px;
+    padding: 40px 10px;
     box-shadow: 0 0 10px rba(255, 255, 255, .2);
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(50px);
 }
 
 .container h1{
