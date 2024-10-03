@@ -1,0 +1,77 @@
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: palevioletred;
+        }
+
+        #text-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-out, opacity 0.5s ease-out;
+            opacity: 0;
+        }
+
+        #text-container.show {
+            max-height: 100px;
+            opacity: 1;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: transparent;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: transparent;
+        }
+
+        button i {
+            margin-left: 10px;
+            transition: transform 0.7s ease;
+        }
+
+        /* Rotaciona o ícone quando o texto estiver visível */
+        .rotate {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <button onclick="toggleText()">Conheça nossa equipe<i id="icon" class="fa-solid fa-caret-down"></i></button>
+        <div id="text-container">
+            <p>Este é o texto que desce suavemente quando você clica no botão!</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleText() {
+            const textContainer = document.getElementById("text-container");
+            const icon = document.getElementById("icon");
+            
+            // Alterna a classe 'show' para o container de texto
+            textContainer.classList.toggle("show");
+
+            // Alterna a classe 'rotate' para rotacionar o ícone
+            icon.classList.toggle("rotate");
+        }
+    </script>
