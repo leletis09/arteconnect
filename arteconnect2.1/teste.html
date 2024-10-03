@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1c77068e3f.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="teste.css">
+    <title>ArtConnect</title>
+</head>
+
+<body>
+    <script src="teste.js"></script>
+    <header class="header">
+        <a href="" class="logo"><img src="./img/artconnect_p.i-removebg-preview.png" /></a>
+        <nav class="navbar">
+           <a href="#home">Home</a>
+           <a href="./Galeria/galeria.html">Galeria</a>
+           <a href="./mural/mural.html">Mural/ Calendário</a>
+           <a href="#aboutus">About us</a>
+           <a href="#contact">Contato</a>
+       
+           <div class="dropdown">
+             <button onclick="myFunction()" class="dropbtn">
+                 <i class="fa-solid fa-user"></i>
+             </button>
+             <div id="myDropdown" class="dropdown-content">
+                <div class="user-info">
+                    <img src="img/user-pic.jpg">
+                    <h1>Nome de Usuário</h1>  
+                </div>
+                <hr>
+                <a href=""><div class="edit-profile"><i class="fa-solid fa-user-gear"></i></div>
+                    <p>Edit Profile</p>
+                    <span></span>
+                </a>
+                <a href="#"> <div class="setting-profile"><i class="fa-solid fa-gear"></i></div>
+                    <p>Configurações</p>
+                    <span></span>
+                </a>
+                <a href="#"><div class="help-profile"><i class="fa-solid fa-circle-info"></i></div>
+                    <p>Ajuda</p>
+                    <span></span>
+                </a>
+                <a href="#"><div class="logout-profile"><i class="fa-solid fa-right-to-bracket"></i></div>
+                    <p>LogOut</p>
+                    <span></span>
+                </a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="icons">
+            <!-- <div class="user-icon" onclick="togglemenu()"><i class="fa-solid fa-user"></i></div> -->
+           <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+           <div class="menu-icon"><i class="fa-solid fa-bars"></i></div>
+        </div>
+        <div class="search-form">
+            <input type="text" name="search" id="search-box" placeholder="search here..." />
+            <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+        </div>
+        <!-- <div class="sub-menu-wrap" id="sub-menu-wrap">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img src="img/user-pic.jpg">
+                    <h1>User Name</h1>
+                </div>
+                <hr>
+
+                <a href="#" class="sub-menu-link">
+                    <div class="edit-profile"><i class="fa-solid fa-user-gear"></i></div>
+                    <p>Edit Profile</p>
+                    <span></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <div class="setting-profile"><i class="fa-solid fa-gear"></i></div>
+                    <p>Setting</p>
+                    <span></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <div class="help-profile"><i class="fa-solid fa-circle-info"></i></div>
+                    <p>Help</p>
+                    <span></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <div class="logout-profile"><i class="fa-solid fa-right-to-bracket"></i></div>
+                    <p>LogOut</p>
+                    <span></span>
+                </a>
+            </div>
+        </div> -->
+    </header>
+    
+    <section class="home" id="home">
+        <div class="hero">
+            <h3 class="texto1">Bem vindo(a)!</h3>
+            <p class="texto">Explore as obras de artistas independentes de todo o Brasil.</p>
+            <a class="btn" href="../arteconnect/cadastro/primeiraVez.html">Cadastre-se para mais</a>
+        </div>
+    </section>
+    <section>
+        <div class="aboutus" id="aboutus">
+            <div class="left">
+                <img src="img/aboutus04.jpg">
+            </div>
+            <div class="right">
+               <h1>Conheça nossa equipe</h1>
+               <div>
+                <button onclick="toggleText()" class="bnt-about">Conheça nossa equipe<i id="icon" class="fa-solid fa-caret-down"></i></button>
+                   <div id="text-container">
+                    <p>Nos últimos anos, o cenário das artes tem conquistado cada vez mais relevância na sociedade contemporânea, em grande parte devido aos avanços tecnológicos, que possibilitaram a democratização do acesso a conteúdos artísticos. Essas ferramentas não apenas ampliaram o alcance das produções culturais, mas também abriram novos caminhos para que os artistas possam compartilhar suas obras diretamente com o público, rompendo barreiras geográficas e institucionais. No entanto, ainda há uma grande lacuna em termos de acessibilidade e visibilidade para muitos desses artistas, que enfrentam dificuldades para promover seu trabalho em um mercado competitivo e, muitas vezes, desorganizado. A desinformação sobre como acessar e consumir arte, aliada à falta de plataformas específicas, prejudica tanto os criadores quanto o público que busca novas formas de expressão artística.
+                        <br><br>
+                        É nesse contexto que a criação de um site dedicado à exposição e valorização de artistas se torna crucial. Além de servir como uma vitrine para diferentes manifestações artísticas, esse tipo de plataforma oferece um espaço de interação e descoberta, permitindo que o público conheça uma variedade de obras. Ao proporcionar visibilidade para artistas de diversas regiões e estilos, o site contribui para a formação de uma comunidade artística mais inclusiva e acessível, onde todos podem ter a chance de divulgar suas criações e, ao mesmo tempo, apreciar o trabalho dos outros. Mais do que uma simples plataforma de exposição, o site também tem o potencial de educar o público sobre a importância da arte independente, ajudando a construir uma cultura de valorização da criatividade em suas múltiplas formas, contribuindo para o fortalecimento da identidade cultural contemporânea.</p>
+                   </div>
+                </div>
+               <div class="right-img">
+                   <img src="img/aboutus01.jpg" alt="">
+                   <img src="img/aboutus02.jpg" alt="">
+                   <img src="img/aboutus03.jpg" alt="">
+               </div>
+           </div>
+    </section>
+        
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contato</h2>
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <h3>Nos mande uma mensagem</h3>
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <input class="contato" type="text" name="name" placeholder="Digite seu nome">
+                        </div>
+                        <div class="form-group">
+                            <input class="contato" type="email" name="email" placeholder="Digite seu email">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Digite sua mensagem"></textarea>
+                        </div>
+                        <button type="submit">Enviar mensagem</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Informações para Contato</h3>
+                    <p><i class="fa-solid fa-phone"></i>55 (81) 91234-5678</p>
+                    <p><i class="fa-solid fa-envelope"></i>artconnect.site@gmail.com</p>
+                    <div class="social-media">
+                        <a href="" class="fab fa-whatsapp"></a>
+                        <a href="" class="fab fa-twitter"></a>
+                        <a href="" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="./Galeria/galeria.html">Galeria</a>
+            <a href="./mural/mural.html">Mural / Calendário</a>
+            <a href="#aboutus">About us</a>
+            <a href="#contact">Contato</a>
+        </div>
+        <div class="credits">
+            created by <span> &copy; 2024 ArteConnect</span> | all rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

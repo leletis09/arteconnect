@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastro ArtConnect</title>
+</head>
+<body>
+    <main class="container">
+        <form id="loginForm" onsubmit="Login(event)">
+            <h1>Cadastro ArtConnect</h1>
+            <div class="input-box">
+                <input type="text" id="usuario2" placeholder="Usuário" required>
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="senha2" placeholder="Senha" required>
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox">
+                    Lembrar Minha Senha
+                </label>
+            </div>
+            <button type="submit" class="login">Login</button>
+            <div class="register-link"></div>
+        </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function Login(event) {
+            event.preventDefault(); // Previne o envio do formulário
+
+            const usuario2 = document.getElementById('usuario2').value;
+            const senha2 = document.getElementById('senha2').value;
+
+            // Validação simples dos campos
+            if (usuario2 && senha2) {
+                if (usuario2 === "a" && senha2 === "1") {
+                    Swal.fire("Bom trabalho!", "Você está logado!", "success").then(() => {
+                        window.location.href = "../home.html"; // Redireciona após clicar em OK
+                    });
+                } else {
+                    Swal.fire("Erro!", "Usuário ou senha inválidos.", "error");
+                }
+            } else {
+                Swal.fire("Atenção!", "Por favor, preencha todos os campos corretamente.", "warning");
+            }
+        }
+    </script>
+</body>
+</html>

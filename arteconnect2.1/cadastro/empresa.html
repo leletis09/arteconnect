@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="empresa.css">
+    <title>Cadastro ArtConnect</title>
+</head>
+<body>
+    <main class="container">
+        <form id="loginForm" onsubmit="LoginEmp(event)">
+            <h1>Cadastro ArtConnect</h1>
+            <div class="input-box">
+                <input type="text" id="usuario3" placeholder="Usuário" required>
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="senha3" placeholder="Senha" required>
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" id="cnpj" placeholder="CNPJ" required>
+            </div>
+            <div class="input-box">
+                <input type="text" id="nome" placeholder="Nome da Empresa" required>
+            </div>
+            <div class="input-box">
+                <input type="tel" id="tel" placeholder="Telefone" required>
+            </div>
+            <div class="input-box">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox">
+                    Lembrar Minha Senha
+                </label>
+            </div>
+            <button type="submit" class="login">Login</button>
+            <div class="register-link"></div>
+        </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function LoginEmp(event) {
+            event.preventDefault(); // Previne o envio do formulário
+
+            const usuario3 = document.getElementById('usuario3').value;
+            const senha3 = document.getElementById('senha3').value;
+            const cnpj = document.getElementById('cnpj').value;
+            const nome = document.getElementById('nome').value;
+            const tel = document.getElementById('tel').value;
+            const email = document.getElementById('email').value;
+
+            // Validação simples dos campos
+            if (usuario3 && senha3 && cnpj && nome && tel && email) {
+                // Corrigido para usar as variáveis corretas
+                if (usuario3 === "a" && senha3 === "1" && cnpj === "a" && nome === "a" && tel === "1" && email === "a@gmail.com") {
+                    Swal.fire("Bom trabalho!", "Você está logado!", "success").then(() => {
+                        window.location.href = "../home.html"; // Redireciona após clicar em OK
+                    });
+                } else {
+                    Swal.fire("Erro!", "Usuário ou senha inválidos.", "error");
+                }
+            } else {
+                Swal.fire("Atenção!", "Por favor, preencha todos os campos corretamente.", "warning");
+            }
+        }
+    </script>
+</body>
+</html>
