@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillShare</title>
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="icon" href="icons/SSicon.png">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="menu"> <!-- barra de navegação -->
+    <a href="inicio.html"><img class="logo" style="animation: fadeIn 2s; @keyframes fadeIn {0% {opacity: 0;}100% {opacity: 1;}}" src="icons\SSiconMenu.png"></a>
+    <a href="entrar.html" class="menuDir">Entrar</a>
+    <a href="cadastro.html" class="menuDir" style="background-color: #004d00; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">Cadastre-se</a>
+    <a href="sobre.html" class="menuDir">Sobre</a>
+    <a href="servicos.html" class="menuDir">Serviços</a>
+    <a href="inicio.html" class="menuDir">Início</a>
+    <a href="acessibilidade.html" class="menuDir">
+      <i class="fas fa-hand-holding-heart"></i> Acessibilidade
+    </a>
+  </div>
+  <div class="back">
+    <div> <!-- formulario -->
+        <form action="inicio.html" method="POST_" style="text-align: center;" onsubmit="return validarFormulario()">
+            <fieldset>
+                <legend>Cadastre-se de graça:</legend>
+                <div class="progress-container">
+                  <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="etapa" id="etapa1">
+                    <div class="input-container">
+                        <input placeholder="Nome Completo" class="input-field" type="text" name="nome" id="nome" required>
+                        <label for="nome" class="input-label">Nome Completo</label>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div class="input-container">
+                        <input placeholder="Email" class="input-field" type="email" name="email" id="email" required>
+                        <label for="email" class="input-label">Email (exemplo@dominio.com)</label>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div class="input-container" style="margin-bottom: 5px;">
+                        <input placeholder="Senha " class="input-field" type="password" name="senha" id="senha" pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" required>
+                        <label for="senha" class="input-label">Senha (mais de 8 caracteres, usando números e letras)</label>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div>
+                        <button type="button" class="mudarSenha"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="input-container" style="margin-bottom: 5px;">
+                        <input placeholder="Confirmar Senha" class="input-field" type="password" name="confirmar_senha" id="confirmar-senha" oninput="validarSenha()" required>
+                        <label for="confirmar-senha" class="input-label">Confirmar Senha (Repetir a anterior)</label>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div>
+                        <span id="senha-errada" style="display: none; color: rgb(255, 73, 73);">As senhas não coincidem.</span>
+                    </div>
+                    <button type="button" class="backNext" onclick="avancarEtapa(1)">Avançar</button>
+                </div>
+                <div class="etapa" id="etapa2">
+                    <div class="input-container">
+                        <input placeholder="Username" class="input-field" type="text" name="cep" id="cep">
+                        <label for="cep" class="input-label">Username (@exemplo_123)</label>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div class="input-container">
+                        <input placeholder="CEP" class="input-field" type="text" name="cep" id="cep">
+                        <label for="cep" class="input-label">CEP</label>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div>
+                        <label for="data-nascimento">Data de Nascimento</label>
+                        <input placeholder="DD/MM/AAAA" type="date" name="data-nascimento" id="data-nascimento" min="1924-01-01" max="2008-01-01" required>
+                    </div>
+                    <div class="input-container">
+                        <input placeholder="Número para Contato" class="input-field" type="tel" name="numero-contato" id="numero-contato" required>
+                        <label for="numero-contato" class="input-label">Número para Contato</label>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="contato-preferido">Prefiro contato por email</label>
+                        <input type="checkbox" id="contato-preferido" class="checkbox" name="contato_preferido">
+                    </div>
+                    <div>
+                        <button type="button" class="backNext" onclick="voltarEtapa(1)">Voltar</button>
+                        <button type="button" class="backNext" onclick="avancarEtapa(2)">Avançar</button>
+                    </div>
+                </div>
+                <div class="etapa" id="etapa3">
+                    <div class="caixaServicos">
+                        <label>Serviço (selecione quais você pretende<br>realizar, podendo alterar posteriormente)</label><br>
+                        <label for="realizar-servico">Realizar Serviço</label>
+                        <input type="checkbox" id="realizar-servico" class="checkbox" name="servico[]" value="Realizar Serviço">
+                    
+                        <label for="ensinar-servico">Ensinar Serviço</label>
+                        <input type="checkbox" id="ensinar-servico" class="checkbox" name="servico[]" value="Ensinar Serviço">
+                    
+                        <label for="procurar-servico">Procurar Serviço</label>
+                        <input type="checkbox" id="procurar-servico" class="checkbox" name="servico[]" value="Procurar Serviço">
+                    
+                        <label for="aprender-servico">Aprender Serviço</label>
+                        <input type="checkbox" id="aprender-servico" class="checkbox" name="servico[]" value="Aprender Serviço">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="verificacao" style="font-size: 25px;">Não sou um robô</label>
+                        <input type="checkbox" id="verificacao" class="checkbox" name="verificacao" required>
+                    </div>
+                    <div>
+                        <button type="button" class="backNext" onclick="voltarEtapa(2)">Voltar</button>
+                        <button type="submit" class="backNext">Concluir</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+  </div>
+  <div class="menu">
+      <p style="font-size: 15px; color: #F5F5EB; text-align: center;">©SkillShare 2024<br>Todos os direitos reservados<br>Contato: skillshare@contato.com</p>
+      <div class="conteudo">
+        <a href="https://x.com" target="_blank" class="tooltip" data-tooltip="Acesse nosso X"><img src="icons/x.png" height="50px" style="margin-bottom: 20px;"></a>
+        <a href="insta.com" class="tooltip" data-tooltip="Acesse nosso Instagram"><img src="icons/insta.png" height="50px" style="margin-bottom: 20px;"></a>
+        <a href="x.com" class="tooltip" data-tooltip="Acesse nosso WhatsApp"><img src="icons/wpp.png" height="50px" style="margin-bottom: 20px;"></a>
+        <a href="x.com" class="tooltip" data-tooltip="Faça um Pix"><img src="icons/pix.png" height="50px" style="margin-bottom: 20px;"></a>
+      </div>
+  </div>
+<script>
+  const mudarSenha = document.querySelector('.mudarSenha');
+  const senhaInput = document.getElementById('senha');
+  mudarSenha.addEventListener('click', function() {
+      const tipo = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      senhaInput.setAttribute('type', tipo);
+      this.innerHTML = tipo === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+  });
+
+  function validarSenha() {
+      const senha = document.getElementById('senha').value;
+      const confirmarSenha = document.getElementById('confirmar-senha').value;
+      const senhaErrada = document.getElementById('senha-errada');
+      if (senha === confirmarSenha) {
+          senhaErrada.style.display = 'none';
+          return true;
+      } else {
+          senhaErrada.style.display = 'inline';
+          return false;
+      }
+  }
+  function validarFormulario() {
+      if (!validarSenha()) {
+          alert('As senhas não coincidem.');
+          return false;
+      }
+      return true;
+  }
+
+  const contatoPreferido = document.getElementById('contato-preferido');
+  const numeroContatoInput = document.getElementById('numero-contato');
+  contatoPreferido.addEventListener('change', function() {
+      numeroContatoInput.disabled = this.checked;
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    mostrarEtapa(1); // Mostrar a primeira etapa ao carregar a página
+});
+
+function mostrarEtapa(etapa) {
+    const etapas = document.querySelectorAll(".etapa");
+    etapas.forEach((element, index) => {
+        element.classList.remove("active");
+        if (index === etapa - 1) {
+            element.classList.add("active");
+        }
+    });
+    atualizarBarraProgresso(etapa);
+}
+
+function avancarEtapa(etapaAtual) {
+    mostrarEtapa(etapaAtual + 1);
+}
+
+function voltarEtapa(etapaAtual) {
+    mostrarEtapa(etapaAtual);
+}
+
+function atualizarBarraProgresso(etapa) {
+    const progressBar = document.getElementById("progressBar");
+    const totalEtapas = document.querySelectorAll(".etapa").length;
+    const progresso = (etapa / totalEtapas) * 100;
+    progressBar.style.width = progresso + "%";
+}
+</script>
+</body>
+</html>

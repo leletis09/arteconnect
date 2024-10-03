@@ -1,0 +1,106 @@
+inicio.html php code
+<?php
+
+  if (isset($_POST['submit'])) {
+      include_once('config.php');
+
+      $nome = $_POST['nome'];
+      $sobrenome = $_POST['sobrenome'];
+      $email = $_POST['email'];
+      $senha = $_POST['senha'];
+      $data_nascimento = $_POST['data-nascimento'];
+      $numero_contato = $_POST['numero-contato'];
+      $realizar_servico = isset($_POST['servico']) && in_array('Realizar Serviço', $_POST['servico']) ? 1 : 0;
+      $ensinar_servico = isset($_POST['servico']) && in_array('Ensinar Serviço', $_POST['servico']) ? 1 : 0;
+      $procurar_servico = isset($_POST['servico']) && in_array('Procurar Serviço', $_POST['servico']) ? 1 : 0;
+      $aprender_servico = isset($_POST['servico']) && in_array('Aprender Serviço', $_POST['servico']) ? 1 : 0;
+      $contato_preferido = isset($_POST['contato-preferido']) ? 1 : 0;
+      $verificacao = isset($_POST['verificacao']) ? 1 : 0;
+
+      $result_usuarios = mysqli_query($conexao, "INSERT INTO usuarios(nome, sobrenome, email, senha, data_nascimento, numero_contato, contato_preferido, verificacao) VALUES ('$nome', '$sobrenome', '$email', '$senha', '$data_nascimento', '$numero_contato', '$contato_preferido', '$verificacao')");
+      $result_servicos = mysqli_query($conexao, "INSERT INTO servicos(realizar_servico, ensinar_servico, procurar_servico, aprender_servico) VALUES ('$realizar_servico', '$ensinar_servico', '$procurar_servico', '$aprender_servico')");
+  }
+
+?>
+
+html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro por Etapas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <form id="cadastroForm">
+            <!-- Etapa 1: Informações Pessoais -->
+            <div class="etapa" id="etapa-1">
+                <h2>Informações Pessoais</h2>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome" name="sobrenome" required>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <button type="button" onclick="avancarEtapa(1)">Avançar</button>
+            </div>
+
+            <!-- Etapa 2: Dados de Contato -->
+            <div class="etapa" id="etapa-2">
+                <h2>Dados de Contato</h2>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+                
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+                
+                <button type="button" onclick="voltarEtapa(1)">Voltar</button>
+                <button type="button" onclick="avancarEtapa(2)">Avançar</button>
+            </div>
+
+            <!-- Etapa 3: Senha -->
+            <div class="etapa" id="etapa-3">
+                <h2>Criação de Senha</h2>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+                
+                <label for="confirmaSenha">Confirme a Senha:</label>
+                <input type="password" id="confirmaSenha" name="confirmaSenha" required>
+                
+                <button type="button" onclick="voltarEtapa(2)">Voltar</button>
+                <button type="submit">Concluir Cadastro</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+script js
+document.addEventListener("DOMContentLoaded", function() {
+    mostrarEtapa(1); // Mostrar a primeira etapa ao carregar a página
+});
+
+function mostrarEtapa(etapa) {
+    const etapas = document.querySelectorAll(".etapa");
+    etapas.forEach((element, index) => {
+        element.classList.remove("active");
+        if (index === etapa - 1) {
+            element.classList.add("active");
+        }
+    });
+}
+
+function avancarEtapa(etapaAtual) {
+    mostrarEtapa(etapaAtual + 1);
+}
+
+function voltarEtapa(etapaAtual) {
+    mostrarEtapa(etapaAtual);
+}

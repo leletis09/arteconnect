@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillShare</title>
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="icon" href="icons/SSicon.png">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="menu">
+  <a href="inicio.html"><img class="logo" style="animation: fadeIn 3s; @keyframes fadeIn {0% {opacity: 0;}100% {opacity: 1;}}" src="icons\SSiconMenu.png"></a>
+  <a href="entrar.html" class="menuDir" style="background-color: #004d00; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">Entrar</a>
+  <a href="cadastro.html" class="menuDir">Cadastre-se</a>
+  <a href="sobre.html" class="menuDir">Sobre</a>
+  <a href="servicos.html" class="menuDir">Serviços</a>
+  <a href="inicio.html" class="menuDir">Início</a>
+  <a href="acessibilidade.html" class="menuDir">
+    <i class="fas fa-hand-holding-heart"></i> Acessibilidade
+  </a>
+</div>
+<div class="back">
+  <div>
+    <form action="inicio.html" style="text-align: center;">
+      <fieldset>
+        <legend>Entre na sua conta:</legend>
+        <div class="input-container">
+          <input placeholder="Email" class="input-field" type="email" name="email" id="email" required>
+          <label for="email" class="input-label">Email</label>
+          <span class="input-highlight"></span>
+        </div>
+        <div class="input-container" style="margin-bottom: 5px;">
+          <input placeholder="Senha" class="input-field" type="password" name="senha" id="senha" pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,}" required>
+          <label for="senha" class="input-label">Senha (mais de 6 caracteres, usando números e letras)</label>
+          <span class="input-highlight"></span>
+        </div>
+        <div>
+          <button type="button" class="mudarSenha">Ver Senha</button>
+        </div>
+        <div class="input-container" style="margin-bottom: 5px;">
+          <input placeholder="Confirmar Senha" class="input-field" type="password" name="confirmar-senha" id="confirmar-senha" oninput="validarSenha()" required>
+          <label for="confirmar-senha" class="input-label">Confirmar Senha</label>
+          <span class="input-highlight"></span>
+        </div>
+        <div>
+          <span id="senha-errada" style="display: none; color: rgb(255, 73, 73);">As senhas não coincidem.</span>
+        </div>
+      </fieldset>
+      <input type="submit" value="Entrar" style="background-color: #006400; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+    </form>
+  </div>
+</div>
+<div class="menu">
+    <p style="font-size: 15px; color: #F5F5EB; text-align: center;">©SkillShare 2024<br>Todos os direitos reservados<br>Contato: skillshare@contato.com</p>
+    <div class="conteudo">
+      <a href="https://x.com" target="_blank" class="tooltip" data-tooltip="Acesse nosso X"><img src="icons/x.png" height="50px" style="margin-bottom: 20px;"></a>
+      <a href="insta.com" class="tooltip" data-tooltip="Acesse nosso Instagram"><img src="icons/insta.png" height="50px" style="margin-bottom: 20px;"></a>
+      <a href="x.com" class="tooltip" data-tooltip="Acesse nosso WhatsApp"><img src="icons/wpp.png" height="50px" style="margin-bottom: 20px;"></a>
+      <a href="x.com" class="tooltip" data-tooltip="Faça um Pix"><img src="icons/pix.png" height="50px" style="margin-bottom: 20px;"></a>
+    </div>
+</div>
+
+<script>
+    const mudarSenha = document.querySelector('.mudarSenha');
+  const senhaInput = document.getElementById('senha');
+  mudarSenha.addEventListener('click', function() {
+      const tipo = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      senhaInput.setAttribute('type', tipo);
+      this.textContent = tipo === 'password' ? 'Ver Senha' : 'Esconder Senha';
+  });
+
+  function validarSenha() {
+      const senha = document.getElementById('senha').value;
+      const confirmarSenha = document.getElementById('confirmar-senha').value;
+      const senhaErrada = document.getElementById('senha-errada');
+      if (senha === confirmarSenha) {
+          senhaErrada.style.display = 'none';
+          return true;
+      } else {
+          senhaErrada.style.display = 'inline';
+          return false;
+      }
+  }
+  function validarFormulario() {
+      if (!validarSenha()) {
+          alert('As senhas não coincidem.');
+          return false;
+      }
+      return true;
+  }
+</script>
+
+</body>
+</html>
